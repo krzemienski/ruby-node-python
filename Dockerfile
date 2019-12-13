@@ -6,4 +6,7 @@ RUN wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tgz &&     tar xzf
 RUN git clone https://github.com/sstephenson/bats.git   && cd bats   && ./install.sh /usr/local   && cd ..   && rm -rf bats
 RUN perl -MCPAN -e 'install TAP::Parser'
 RUN perl -MCPAN -e 'install XML::Generator'
-RUN apt-get update && apt-get -y install lsb-release unzip python-pip
+RUN apt-get update && apt-get -y install lsb-release unzip python3-pip python3-dev
+RUN pip3 install mkdocs mkdocs-material json-spec
+RUN gem install awesome_bot
+CMD ["/bin/sh"]
